@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import ValidationError
 
-from models import Product
+from SKALA_PYTHON.Python_data_0720_Day1.capstone01_async_etl.models import Product
 
 
 def transform(raw: list[dict]) -> tuple[list, list]:
