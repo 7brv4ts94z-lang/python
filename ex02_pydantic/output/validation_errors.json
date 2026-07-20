@@ -1,0 +1,71 @@
+[
+  {
+    "id": 7,
+    "errors": [
+      {
+        "type": "greater_than_equal",
+        "loc": [
+          "age"
+        ],
+        "msg": "Input should be greater than or equal to 0",
+        "input": -5,
+        "url": "https://errors.pydantic.dev/2.13/v/greater_than_equal"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "errors": [
+      {
+        "type": "value_error",
+        "loc": [
+          "email"
+        ],
+        "msg": "Value error, 이메일에 @가 없습니다.",
+        "input": "not-an-email",
+        "url": "https://errors.pydantic.dev/2.13/v/value_error"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "errors": [
+      {
+        "type": "missing",
+        "loc": [
+          "email"
+        ],
+        "msg": "Field required",
+        "input": {
+          "id": 21,
+          "username": "user_021",
+          "age": 28,
+          "is_active": false,
+          "signup_date": "2025-03-09",
+          "profile": {
+            "country": "KR",
+            "tier": "free",
+            "score": 99.99
+          },
+          "tags": []
+        },
+        "url": "https://errors.pydantic.dev/2.13/v/missing"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "errors": [
+      {
+        "type": "less_than_equal",
+        "loc": [
+          "profile",
+          "score"
+        ],
+        "msg": "Input should be less than or equal to 100",
+        "input": 150.0,
+        "url": "https://errors.pydantic.dev/2.13/v/less_than_equal"
+      }
+    ]
+  }
+]

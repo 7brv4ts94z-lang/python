@@ -1,0 +1,59 @@
+[
+    {
+        "row": {
+            "region": "서울",
+            "category": "전자",
+            "amount": 2100,
+            "month": ""
+        },
+        "error": [
+            {
+                "type": "value_error",
+                "loc": [
+                    "month"
+                ],
+                "msg": "Value error, 빈 값은 허용되지 않습니다.",
+                "input": "",
+                "url": "https://errors.pydantic.dev/2.13/v/value_error"
+            }
+        ]
+    },
+    {
+        "row": {
+            "region": "",
+            "category": "전자",
+            "amount": 650,
+            "month": "2024-02"
+        },
+        "error": [
+            {
+                "type": "value_error",
+                "loc": [
+                    "region"
+                ],
+                "msg": "Value error, 빈 값은 허용되지 않습니다.",
+                "input": "",
+                "url": "https://errors.pydantic.dev/2.13/v/value_error"
+            }
+        ]
+    },
+    {
+        "row": {
+            "region": "대구",
+            "category": "의류",
+            "amount": -300,
+            "month": "2024-02"
+        },
+        "error": [
+            {
+                "type": "greater_than",
+                "loc": [
+                    "amount"
+                ],
+                "msg": "Input should be greater than 0",
+                "input": -300,
+                "url": "https://errors.pydantic.dev/2.13/v/greater_than"
+            }
+        ]
+    }
+]
