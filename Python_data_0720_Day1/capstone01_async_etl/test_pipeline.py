@@ -2,7 +2,7 @@ import asyncio
 
 import pandas as pd
 
-from pipeline import extract, run, transform
+from SKALA_PYTHON.Python_data_0720_Day1.capstone01_async_etl.pipeline import extract, run, transform
 
 
 def test_카테고리_소문자화():
