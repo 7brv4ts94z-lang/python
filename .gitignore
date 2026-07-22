@@ -1,4 +1,28 @@
+# 모든 하위 폴더의 가상환경
 .venv/
+venv/
+env/
+
+# 파이썬 캐시
 __pycache__/
-*.pyc
+*.py[cod]
+
+# 환경변수
+.env
+.env.local
+
+# macOS
 .DS_Store
+
+# VS Code
+.vscode/
+
+# 테스트 및 주피터 캐시
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# 빌드 파일
+build/
+dist/
+*.egg-info/
