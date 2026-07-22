@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: #1f2937;
+            background-color: #f1f5f9;
+            font-family: Arial, "Noto Sans KR", sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            padding: 32px;
+            color: white;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
+        }
+
+        .header h1 {
+            margin: 0 0 10px;
+        }
+
+        .header p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .kpi-card {
+            padding: 24px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+        }
+
+        .kpi-name {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .kpi-value {
+            display: block;
+            margin-top: 10px;
+            color: #1e3a8a;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .report-section {
+            margin-top: 24px;
+            padding: 28px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+        }
+
+        .report-section h2 {
+            margin-top: 0;
+            color: #1e3a8a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            color: white;
+            background-color: #1e3a8a;
+            text-align: left;
+        }
+
+        th:last-child,
+        td:last-child {
+            text-align: right;
+        }
+
+        tbody tr:hover {
+            background-color: #eff6ff;
+        }
+
+        .footer {
+            margin-top: 24px;
+            color: #64748b;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <header class="header">
+            <h1>{{ title }}</h1>
+            <p>생성 시각: {{ generated_at }}</p>
+        </header>
+
+        <section class="kpi-grid">
+            {% for name, value in kpi.items() %}
+            <article class="kpi-card">
+                <span class="kpi-name">{{ name }}</span>
+                <span class="kpi-value">
+                    {{ "{:,.0f}".format(value) }}
+                </span>
+            </article>
+            {% endfor %}
+        </section>
+
+        <section class="report-section">
+    <h2>일별 매출 추이</h2>
+    {{ chart_html | safe }}
+</section>
+
+        <section class="report-section">
+            <h2>카테고리별 매출</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>카테고리</th>
+                        <th>매출액</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in by_category %}
+                    
+                    <tr>
+                        <td>{{ row.category }}</td>
+                        <td>{{ "{:,.0f}".format(row.amount) }}원</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="footer">
+            Python 데이터 분석 종합실습 3 · 자동 생성 리포트
+        </footer>
+
+    </main>
+</body>
+</html>
